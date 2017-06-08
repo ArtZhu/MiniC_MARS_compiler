@@ -1,0 +1,62 @@
+ast.cmo : util.cmi typ.cmi symbol.cmi environment.cmo ast.cmi
+ast.cmx : util.cmx typ.cmx symbol.cmx environment.cmx ast.cmi
+ast.cmi : typ.cmi symbol.cmi environment.cmo
+bases.cmo : util.cmi typ.cmi symbol.cmi mips.cmi environment.cmo ast.cmi \
+    bases.cmi
+bases.cmx : util.cmx typ.cmx symbol.cmx mips.cmx environment.cmx ast.cmx \
+    bases.cmi
+bases.cmi : typ.cmi symbol.cmi mips.cmi environment.cmo ast.cmi
+codegen.cmo : typ.cmi symbol.cmi quads.cmo mips.cmi label.cmi \
+    environment.cmo debug.cmo bases.cmi codegen.cmi
+codegen.cmx : typ.cmx symbol.cmx quads.cmx mips.cmx label.cmx \
+    environment.cmx debug.cmx bases.cmx codegen.cmi
+codegen.cmi : quads.cmo mips.cmi
+compile.cmo : util.cmi typ.cmi static.cmi quads.cmo parser.cmi name.cmi \
+    mips.cmi lift.cmi lexer.cmo debug.cmo copyprop.cmo control.cmo \
+    codegen.cmi bases.cmi ast.cmi
+compile.cmx : util.cmx typ.cmx static.cmx quads.cmx parser.cmx name.cmx \
+    mips.cmx lift.cmx lexer.cmx debug.cmx copyprop.cmx control.cmx \
+    codegen.cmx bases.cmx ast.cmx
+control.cmo : typ.cmi symbol.cmi quads.cmo label.cmi bases.cmi ast.cmi
+control.cmx : typ.cmx symbol.cmx quads.cmx label.cmx bases.cmx ast.cmx
+copyprop.cmo : symbol.cmi ast.cmi
+copyprop.cmx : symbol.cmx ast.cmx
+copyprop_quads.cmo : symbol.cmi quads.cmo environment.cmo
+copyprop_quads.cmx : symbol.cmx quads.cmx environment.cmx
+debug.cmo : util.cmi typ.cmi symbol.cmi parser.cmi environment.cmo ast.cmi
+debug.cmx : util.cmx typ.cmx symbol.cmx parser.cmx environment.cmx ast.cmx
+environment.cmo : symbol.cmi
+environment.cmx : symbol.cmx
+label.cmo : label.cmi
+label.cmx : label.cmi
+label.cmi :
+lexer.cmo : parser.cmi
+lexer.cmx : parser.cmx
+lift.cmo : ast.cmi lift.cmi
+lift.cmx : ast.cmx lift.cmi
+lift.cmi : ast.cmi
+mips.cmo : util.cmi label.cmi mips.cmi
+mips.cmx : util.cmx label.cmx mips.cmi
+mips.cmi : label.cmi
+name.cmo : typ.cmi symbol.cmi environment.cmo ast.cmi name.cmi
+name.cmx : typ.cmx symbol.cmx environment.cmx ast.cmx name.cmi
+name.cmi : typ.cmi environment.cmo ast.cmi
+parser.cmo : typ.cmi symbol.cmi ast.cmi parser.cmi
+parser.cmx : typ.cmx symbol.cmx ast.cmx parser.cmi
+parser.cmi : ast.cmi
+quads.cmo : typ.cmi symbol.cmi label.cmi debug.cmo bases.cmi
+quads.cmx : typ.cmx symbol.cmx label.cmx debug.cmx bases.cmx
+sets.cmo : symbol.cmi
+sets.cmx : symbol.cmx
+static.cmo : typ.cmi symbol.cmi environment.cmo debug.cmo ast.cmi static.cmi
+static.cmx : typ.cmx symbol.cmx environment.cmx debug.cmx ast.cmx static.cmi
+static.cmi : typ.cmi environment.cmo ast.cmi
+symbol.cmo : symbol.cmi
+symbol.cmx : symbol.cmi
+symbol.cmi :
+typ.cmo : typ.cmi
+typ.cmx : typ.cmi
+typ.cmi :
+util.cmo : util.cmi
+util.cmx : util.cmi
+util.cmi :
